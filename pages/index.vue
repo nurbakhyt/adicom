@@ -12,12 +12,65 @@
     locale: ILocale;
   };
 
+  export type IImage = {
+    id: number;
+    documentId: string;
+    name: string;
+    alternativeText: string;
+    caption: string;
+    width: number;
+    height: number;
+    formats: {
+      thumbnail: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      large: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      medium: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      small: {
+        url: string;
+        width: number;
+        height: number;
+      };
+    };
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+    previewUrl: string;
+    provider: string;
+    provider_metadata: string;
+    created_at: string;
+    updated_at: string;
+  };
+
+  export type IProduct = {
+    id: number;
+    documentId: string;
+    title: string;
+    description: string;
+    price: number;
+    slug: string;
+    locale: ILocale;
+    image?: IImage;
+  };
+
   const route = useRoute();
   const { find } = useStrapi();
 
-  const { data, status, error, refresh } = await useAsyncData<{ data: ICategory[] }>(
-    "categories",
-    () => find("categories")
+  const { data, status, error, refresh } = await useAsyncData<{ data: IProduct[] }>(
+    "products",
+    () => find("products", { populate: ["category", "image"] })
   );
 
   const isPending = (status: AsyncDataRequestStatus) => status === "pending";
@@ -26,19 +79,10 @@
 
 <template>
   <div>
+    <Cta />
+
     <h3 v-if="error" class="text-red-900">Проверьте интернет соединение</h3>
-    <div v-else class="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
-      <template v-if="isPending(status)">
-        <UiSkeleton v-for="i in [0, 1, 2, 3]" class="h-[250px]" />
-      </template>
-      <UiCard v-if="isSuccess(status) && data" v-for="category in data.data" :key="category.id">
-        <template #content>
-          <UiCardContent>
-            <h2>{{ category.name }}</h2>
-          </UiCardContent>
-        </template>
-        <!-- <p>{{  }}</p> -->
-      </UiCard>
-    </div>
+
+    <Landing v-if="data" :products="data?.data" />
   </div>
 </template>

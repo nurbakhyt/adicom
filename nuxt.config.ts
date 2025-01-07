@@ -12,7 +12,16 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
   ],
 
-  strapi: {},
+  runtimeConfig: {
+    strapi: {
+      url: 'http://172.105.80.13:1337'
+    },
+    public: {
+      strapi: {
+        url: 'http://172.105.80.13:1337'
+      }
+    }
+  },
 
   tailwindcss: {
     exposeConfig: true,

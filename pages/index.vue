@@ -1,3 +1,13 @@
+<template>
+  <div>
+    <Cta />
+
+    <h3 v-if="error" class="text-red-900">Проверьте интернет соединение</h3>
+
+    <Landing v-if="data" :products="data?.data" />
+  </div>
+</template>
+
 <script setup lang="ts">
   import type { AsyncDataRequestStatus } from "#app";
 
@@ -57,7 +67,7 @@
   export type IProduct = {
     id: number;
     documentId: string;
-    title: string;
+    name: string;
     description: string;
     price: number;
     slug: string;
@@ -76,13 +86,3 @@
   const isPending = (status: AsyncDataRequestStatus) => status === "pending";
   const isSuccess = (status: AsyncDataRequestStatus) => status === "success";
 </script>
-
-<template>
-  <div>
-    <Cta />
-
-    <h3 v-if="error" class="text-red-900">Проверьте интернет соединение</h3>
-
-    <Landing v-if="data" :products="data?.data" />
-  </div>
-</template>

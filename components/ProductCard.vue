@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLink :to="`/products/${item.id}`">
+    <NuxtLink :to="`/products/${item.documentId}`">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <img
         v-if="item.image"

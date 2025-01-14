@@ -2,9 +2,11 @@
   <div>
     <Cta />
 
-    <h3 v-if="error" class="text-red-900">Проверьте интернет соединение</h3>
+    <UiContainer class="py-16 lg:py-24">
+      <h3 v-if="error" class="text-red-900">Проверьте интернет соединение</h3>
 
-    <Landing v-if="data" :products="data?.data" />
+      <Landing v-if="data" :products="data?.data" />
+    </UiContainer>
   </div>
 </template>
 
@@ -72,7 +74,7 @@
     price: number;
     slug: string;
     locale: ILocale;
-    image?: IImage;
+    image: IImage;
   };
 
   const route = useRoute();

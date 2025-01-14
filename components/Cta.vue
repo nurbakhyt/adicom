@@ -1,5 +1,5 @@
 <template>
-  <div class="-mx-4 bg-sky-600/75 bg-[url('/images/night-sky.avif')] bg-cover bg-center">
+  <div class="bg-sky-600/75 bg-[url('/images/night-sky.avif')] bg-cover bg-center">
     <UiContainer
       class="py flex min-h-screen flex-col items-center justify-center py-16 text-center lg:py-24"
     >

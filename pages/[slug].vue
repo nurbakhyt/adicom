@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <UiContainer class="py-16 lg:py-24">
     <Navigation class="mb-8 mt-4" />
 
     <section class="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
@@ -15,7 +15,7 @@
 
       <product-card v-for="p in products?.data" :key="p.id" :item="p" />
     </section>
-  </div>
+  </UiContainer>
 </template>
 
 <script setup lang="ts">

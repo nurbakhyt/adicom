@@ -14,11 +14,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     strapi: {
-      url: 'http://172.105.80.13:1337'
+      url: process.env.NUXT_STRAPI_URL
     },
     public: {
       strapi: {
-        url: 'http://172.105.80.13:1337'
+        url: process.env.NUXT_STRAPI_URL
       }
     }
   },

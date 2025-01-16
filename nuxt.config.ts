@@ -23,7 +23,15 @@ export default defineNuxtConfig({
       }
     }
   },
-
+  strapi: {
+    cookie: {
+      path: '/',
+      maxAge: 14 * 24 * 60 * 60,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: true
+    },
+    prefix: "/api",
+  },
   tailwindcss: {
     exposeConfig: true,
     editorSupport: true,
@@ -48,5 +56,11 @@ export default defineNuxtConfig({
   },
   typescript: {
     typeCheck: true
+  },
+
+  hooks: {
+    'ready': (nuxt) => {
+      console.log('ready: NUXT_STRAPI_URL:', process.env.NUXT_STRAPI_URL);
+    }
   }
 });

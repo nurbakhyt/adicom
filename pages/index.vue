@@ -3,7 +3,11 @@
     <Cta />
 
     <UiContainer class="py-16 lg:py-24">
-      <h3 v-if="error" class="text-red-900">Проверьте интернет соединение</h3>
+      <template v-if="error">
+        <h3 class="text-red-900">Проверьте интернет соединение</h3>
+        <code>{{ error }}</code>
+      </template>
+      <code>{{ runtimeConfig }}</code>
 
       <Landing v-if="data" :products="data?.data" />
     </UiContainer>
@@ -79,6 +83,7 @@
 
   const route = useRoute();
   const { find } = useStrapi();
+  const runtimeConfig = useRuntimeConfig();
 
   const { data, status, error, refresh } = await useAsyncData<{ data: IProduct[] }>(
     "products",

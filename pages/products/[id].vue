@@ -13,7 +13,7 @@
       <div class="col-span-2 grid grid-cols-1 gap-8">
         <img
           class="mb-8 rounded-xl"
-          :src="getStrapiMedia(product?.data?.image?.formats?.large?.url)"
+          :src="product?.data?.image?.formats?.large?.url"
           alt="Product Image"
         />
       </div>

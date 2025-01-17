@@ -14,7 +14,7 @@
         Больше 1000 рисунков на выбор
       </p>
       <div class="mt-8 flex w-full flex-col-reverse justify-center gap-3 md:w-auto md:flex-row">
-        <UiButton size="lg">
+        <UiButton size="lg" @click="triggerError">
           Посмотреть
           <Icon class="size-4" name="lucide:arrow-right" />
         </UiButton>
@@ -23,4 +23,8 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  const triggerError = () => {
+    throw new Error("Nuxt Button Error");
+  };
+</script>

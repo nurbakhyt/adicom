@@ -5,9 +5,7 @@
     <UiContainer class="py-16 lg:py-24">
       <template v-if="error">
         <h3 class="text-red-900">Проверьте интернет соединение</h3>
-        <code>{{ error }}</code>
       </template>
-      <code>{{ runtimeConfig }}</code>
 
       <Landing v-if="data" :products="data?.data" />
     </UiContainer>

@@ -15,7 +15,7 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <img
         v-if="products[0].image"
-        :src="getStrapiMedia(products[0].image.formats.large.url)"
+        :src="products[0].image.formats.large.url"
         :alt="products[0].name"
         class="mb-5 h-[240px] w-full rounded-lg object-cover shadow"
       />

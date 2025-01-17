@@ -4,7 +4,7 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <img
         v-if="item.image"
-        :src="getStrapiMedia(item.image.formats.small.url)"
+        :src="item.image.formats.small.url"
         :alt="item.name"
         class="mb-5 h-[240px] w-full rounded-lg object-cover shadow"
       />

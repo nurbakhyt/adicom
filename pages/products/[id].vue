@@ -23,10 +23,10 @@
       </div>
     </div>
     <div v-else-if="status === 'pending'">
-      <p>Loading...</p>
+      <p>Загрузка...</p>
     </div>
     <div v-else-if="status === 'error'">
-      <p>Error loading product: {{ error }}</p>
+      <p>Произошла ошибка: {{ error }}</p>
     </div>
   </UiContainer>
 </template>

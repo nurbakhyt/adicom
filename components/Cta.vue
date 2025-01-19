@@ -3,16 +3,14 @@
     <UiContainer
       class="py flex min-h-screen flex-col items-center justify-center py-16 text-center lg:py-24"
     >
-      <h3
-        class="title mb-4 bg-gradient-to-r from-orange-200 to-violet-200 bg-clip-text text-3xl font-semibold text-transparent md:mb-5 md:text-4xl"
-      >
-        Adi.com.kz фотопечать натяжных потолков.
+      <h3 class="text mb-4 text-2xl text-white md:mb-5 md:text-4xl lg:text-5xl">
+        <span
+          class="bg-gradient-to-r from-indigo-400 to-sky-200 bg-clip-text text-3xl font-bold text-transparent md:text-5xl"
+          >Adi.com.kz</span
+        >
+        каталог изображений с фотопечатью натяжных потолков
       </h3>
-      <p
-        class="bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent md:text-xl"
-      >
-        Больше 1000 рисунков на выбор
-      </p>
+      <p class="text-white md:text-xl">Больше 1000 рисунков на выбор</p>
       <div class="mt-8 flex w-full flex-col-reverse justify-center gap-3 md:w-auto md:flex-row">
         <UiButton size="lg" @click="triggerError">
           Посмотреть

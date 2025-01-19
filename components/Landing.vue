@@ -1,7 +1,7 @@
 <template>
   <p class="mb-3 font-semibold text-primary">Мы предлагаем</p>
   <h1
-    class="mb-4 bg-gradient-to-r from-orange-400 to-violet-500 bg-clip-text text-4xl font-semibold text-transparent lg:mb-6 lg:text-5xl"
+    class="mb-4 bg-gradient-to-r from-indigo-400 to-sky-200 bg-clip-text text-4xl font-semibold text-transparent lg:mb-6 lg:text-5xl"
   >
     широкий выбор картинок
   </h1>

@@ -39,6 +39,10 @@
   } = useRoute();
   const { findOne } = useStrapi<IProduct>();
 
+  useHead({
+    title: "Страница продукта",
+  });
+
   const {
     data: product,
     status,

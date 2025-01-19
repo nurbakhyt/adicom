@@ -4,7 +4,7 @@
 
     <section class="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
       <UiAlert
-        v-if="products && products?.data?.length < 1"
+        v-if="category?.data[0]?.products && category?.data[0]?.products?.length < 1"
         description="Нет картинок для отображения"
         class="col-span-full"
       >
@@ -13,7 +13,12 @@
         </template>
       </UiAlert>
 
-      <product-card v-for="p in products?.data" :key="p.id" :item="p" />
+      <product-card
+        v-if="category?.data && category?.data[0]?.products"
+        v-for="p in category?.data[0]?.products"
+        :key="p.id"
+        :item="p"
+      />
     </section>
   </UiContainer>
 </template>
@@ -26,15 +31,30 @@
   } = useRoute();
   const { findOne } = useStrapi<ICategory[]>();
 
+  // const {
+  //   data: products,
+  //   status,
+  //   error,
+  //   refresh,
+  // } = await useAsyncData<{ data: IProduct[] }>(`products`, () =>
+  //   findOne("products", {
+  //     filters: { category: { slug: { $eq: slug } } },
+  //     populate: ["image"],
+  //   })
+  // );
+
   const {
-    data: products,
+    data: category,
     status,
     error,
-    refresh,
-  } = await useAsyncData<{ data: IProduct[] }>(`products`, () =>
-    findOne("products", {
-      filters: { category: { slug: { $eq: slug } } },
-      populate: ["image"],
+  } = await useAsyncData<{ data: ICategory[] | null }>(`category-${slug}`, () =>
+    findOne("categories", {
+      filters: { slug: { $eq: slug } },
+      populate: ["products", "products.image"],
     })
   );
+
+  useHead({
+    title: "Картинки",
+  });
 </script>

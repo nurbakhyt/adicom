@@ -24,6 +24,7 @@
     description: string;
     slug: string;
     locale: ILocale;
+    products?: IProduct[];
   };
 
   export type IImage = {
@@ -77,11 +78,16 @@
     slug: string;
     locale: ILocale;
     image: IImage;
+    category?: ICategory;
   };
 
   const route = useRoute();
   const { find } = useStrapi();
   const runtimeConfig = useRuntimeConfig();
+
+  useHead({
+    title: "Главная страница",
+  });
 
   const { data, status, error, refresh } = await useAsyncData<{ data: IProduct[] }>(
     "products",

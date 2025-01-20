@@ -63,12 +63,6 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
 
-  hooks: {
-    ready: (nuxt) => {
-      console.log("ready: NUXT_STRAPI_URL:", process.env.NUXT_STRAPI_URL);
-    },
-  },
-
   sentry: {
     sourceMapsUploadOptions: {
       org: "baqsha",
@@ -78,5 +72,12 @@ export default defineNuxtConfig({
 
   sourcemap: {
     client: "hidden",
+  },
+
+  nitro: {
+    preset: "cloudflare",
+    routes: {
+      "/api/**": "https://adicom-back.onrender.com/api/:splat",
+    },
   },
 });

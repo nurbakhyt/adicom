@@ -73,11 +73,4 @@ export default defineNuxtConfig({
   sourcemap: {
     client: "hidden",
   },
-
-  nitro: {
-    preset: "cloudflare",
-    routes: {
-      "/api/**": "https://adicom-back.onrender.com/api/:splat",
-    },
-  },
 });
